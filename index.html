@@ -1,423 +1,416 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2867
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu mã shop Shopee</title>
+    <style>
+        :root {
+            --accent: #5c8b9f; 
+            --bg-cream: #f8f5e6; 
+            --text-dark: #4a3f35;
+            --text-light: #7a6f65; 
+            --notice-bg: #fffbf0; 
+            --white: #ffffff;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Tra c\uc0\u7913 u m\'e3 shop Shopee</title>\
-    <style>\
-        :root \{\
-            --accent: #5c8b9f; \
-            --bg-cream: #f8f5e6; \
-            --text-dark: #4a3f35;\
-            --text-light: #7a6f65; \
-            --notice-bg: #fffbf0; \
-            --white: #ffffff;\
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);\
-        \}\
-\
-        body \{ \
-            font-family: 'Inter', sans-serif; \
-            background-color: var(--bg-cream); \
-            color: var(--text-dark); \
-            margin: 0; \
-            padding: 40px 15px; \
-            padding-bottom: 100px; \
-        \}\
-\
-        .container \{ \
-            background: var(--white); \
-            border-radius: 30px; \
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); \
-            width: 100%; \
-            max-width: 480px; \
-            margin: auto; \
-            overflow: hidden; \
-            border: 2px solid #e8e4d5; \
-        \}\
-\
-        .banner \{ width: 100%; height: 120px; background: var(--accent); position: relative; \}\
-        \
-        .banner::after \{\
-            content: '\uc0\u10024 ';\
-            position: absolute;\
-            right: 20px;\
-            top: 20px;\
-            font-size: 24px;\
-            opacity: 0.5;\
-        \}\
-\
-        .logo-wrapper \{ \
-            width: 80px; height: 80px; \
-            background: white; \
-            border-radius: 50%; \
-            margin: -40px auto 15px auto; \
-            padding: 5px; \
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08); \
-            border: 2px solid var(--bg-cream); \
-            position: relative;\
-            z-index: 2;\
-        \}\
-        .logo-wrapper img \{ width: 100%; height: 100%; border-radius: 50%; object-fit: cover; \}\
-\
-        .content \{ padding: 0 20px 30px 20px; \}\
-        h2 \{ text-align: center; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; \}\
-        .subtitle \{ text-align: center; color: var(--text-light); font-size: 13px; margin: 8px 0 20px 0; \}\
-\
-        /* FIXED PROMO SECTION */\
-        .promo-status-grid \{\
-            display: grid;\
-            grid-template-columns: 1fr 1fr;\
-            gap: 12px;\
-            margin-bottom: 25px;\
-        \}\
-\
-        .promo-card \{\
-            background: var(--notice-bg);\
-            border: 2px solid #e8e4d5;\
-            border-radius: 18px;\
-            padding: 12px;\
-            text-align: center;\
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);\
-        \}\
-\
-        .promo-label \{\
-            display: block;\
-            font-size: 10px;\
-            font-weight: 800;\
-            color: var(--accent);\
-            text-transform: uppercase;\
-            margin-bottom: 4px;\
-            letter-spacing: 0.5px;\
-        \}\
-\
-        .promo-value \{\
-            display: block;\
-            font-size: 15px;\
-            font-weight: 900;\
-            color: var(--text-dark);\
-        \}\
-\
-        /* SEARCH SECTION */\
-        .search-box \{\
-            position: relative;\
-            margin-bottom: 20px;\
-        \}\
-\
-        .input-label \{\
-            font-size: 11px;\
-            font-weight: 800;\
-            color: var(--accent);\
-            text-transform: uppercase;\
-            margin-bottom: 8px;\
-            display: block;\
-            margin-left: 5px;\
-        \}\
-        \
-        input#brandSearch \{\
-            width: 100%;\
-            padding: 16px 20px;\
-            border-radius: 15px;\
-            border: 2px solid #e8e4d5;\
-            background: var(--bg-cream);\
-            font-size: 15px;\
-            font-family: inherit;\
-            box-sizing: border-box;\
-            transition: var(--transition);\
-        \}\
-\
-        input#brandSearch:focus \{\
-            outline: none;\
-            border-color: var(--accent);\
-            background: var(--white);\
-            box-shadow: 0 0 0 4px rgba(92, 139, 159, 0.1);\
-        \}\
-\
-        /* RESULTS AREA */\
-        #resultsArea \{\
-            display: flex;\
-            flex-direction: column;\
-            gap: 12px;\
-            min-height: 50px;\
-        \}\
-\
-        .voucher-card \{\
-            background: var(--white);\
-            border: 2px solid #e8e4d5;\
-            border-radius: 18px;\
-            padding: 15px;\
-            display: flex;\
-            justify-content: space-between;\
-            align-items: center;\
-            animation: fadeIn 0.3s ease;\
-        \}\
-\
-        @keyframes fadeIn \{\
-            from \{ opacity: 0; transform: translateY(10px); \}\
-            to \{ opacity: 1; transform: translateY(0); \}\
-        \}\
-\
-        .brand-info \{ flex: 1; \}\
-        .brand-name \{ font-weight: 800; font-size: 15px; display: block; color: var(--text-dark); \}\
-        .voucher-code \{ \
-            font-family: 'Monaco', monospace; \
-            color: var(--accent); \
-            font-weight: 700; \
-            font-size: 14px;\
-            background: #f0f4f5;\
-            padding: 2px 6px;\
-            border-radius: 4px;\
-            display: inline-block;\
-            margin-top: 4px;\
-        \}\
-\
-        .copy-btn \{\
-            background: var(--accent);\
-            color: white;\
-            border: none;\
-            padding: 10px 15px;\
-            border-radius: 10px;\
-            font-weight: 700;\
-            font-size: 12px;\
-            cursor: pointer;\
-            transition: var(--transition);\
-        \}\
-\
-        .copy-btn:active \{ transform: scale(0.95); \}\
-        .copy-btn.copied \{ background: #28a745; \}\
-\
-        .no-results \{\
-            text-align: center;\
-            color: var(--text-light);\
-            font-size: 13px;\
-            padding: 20px;\
-            font-style: italic;\
-        \}\
-\
-        /* NOTICE BOARD */\
-        .notice-board \{ \
-            background: var(--notice-bg); \
-            border: 2px solid #e8e4d5; \
-            border-radius: 20px; \
-            padding: 20px; \
-            margin-top: 25px; \
-            text-align: center;\
-        \}\
-\
-        .btn-shopee-app \{\
-            display: inline-block;\
-            margin-top: 15px;\
-            padding: 12px 25px;\
-            background: var(--accent);\
-            color: white;\
-            text-decoration: none;\
-            border-radius: 12px;\
-            font-weight: 800;\
-            font-size: 13px;\
-            transition: var(--transition);\
-            box-shadow: 0 4px 15px rgba(92, 139, 159, 0.2);\
-        \}\
-\
-        .btn-shopee-app:hover \{\
-            transform: translateY(-2px);\
-            filter: brightness(1.1);\
-        \}\
-\
-        /* SOCIAL PROOF */\
-        #socialProof \{\
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(150%);\
-            background: white; padding: 12px 20px; border-radius: 50px;\
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px;\
-            z-index: 9999; border: 2px solid var(--accent); transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);\
-            min-width: 250px; font-size: 12px; font-weight: 600;\
-        \}\
-        #socialProof.show \{ transform: translateX(-50%) translateY(0); \}\
-        .proof-dot \{ width: 8px; height: 8px; background: #28a745; border-radius: 50%; animation: pulse 1.5s infinite; \}\
-        @keyframes pulse \{ 0% \{ transform: scale(1); opacity: 1; \} 50% \{ transform: scale(1.5); opacity: 0.5; \} 100% \{ transform: scale(1); opacity: 1; \} \}\
-\
-    </style>\
-</head>\
-<body>\
-\
-<div id="socialProof">\
-    <div class="proof-dot"></div>\
-    <span id="proofText">\uc0\u272 ang c\u7853 p nh\u7853 t m\'e3 m\u7899 i...</span>\
-</div>\
-\
-<div class="container">\
-    <div class="banner"></div>\
-    <div class="logo-wrapper">\
-        <img src="https://i.pinimg.com/736x/06/3c/fa/063cfa3125f4cb7a29fda76242998113.jpg" alt="Shopee Hub">\
-    </div>\
-\
-    <div class="content">\
-        <h2>\uc0\u55357 \u56589  T\'ecm voucher shop</h2>\
-        <p class="subtitle">Hi\uc0\u7879 n t\u7841 i \u273 ang c\'f3 m\'e3...</p>\
-\
-        <div class="promo-status-grid">\
-            <div class="promo-card">\
-                <span class="promo-label">\uc0\u55356 \u57335 \u65039  M\u7913 c gi\u7843 m</span>\
-                <span class="promo-value">Gi\uc0\u7843 m 18%</span>\
-            </div>\
-            <div class="promo-card">\
-                <span class="promo-label">\uc0\u55357 \u56517  \'c1p d\u7909 ng</span>\
-                <span class="promo-value">T\uc0\u7915  0H 4.4</span>\
-            </div>\
-        </div>\
-\
-        <div class="search-box">\
-            <span class="input-label">\uc0\u55357 \u56960  Nh\u7853 p t\'ean Shop/Brand</span>\
-            <input type="text" id="brandSearch" placeholder="V\'ed d\uc0\u7909 : Torriden, Clio, Fwee..." oninput="searchVoucher()">\
-        </div>\
-\
-        <div id="resultsArea"></div>\
-\
-        <div class="notice-board">\
-            <div style="font-weight:800; font-size:13px; color: var(--accent);">\uc0\u55357 \u56481  H\u431 \u7898 NG D\u7850 N</div>\
-            <div style="font-size:12px; line-height:1.5; color:var(--text-light); margin-top: 5px;">\
-                Copy m\'e3 v\'e0 d\'e1n v\'e0o m\uc0\u7909 c "Shopee Voucher" trong gi\u7887  h\'e0ng \u273 \u7875  \'e1p d\u7909 ng gi\u7843 m gi\'e1 cho shop t\u432 \u417 ng \u7913 ng<br><br>\
-                Ho\uc0\u7863 c l\u432 u tr\u432 \u7899 c m\'e3 v\'e0o v\'ed \u55357 \u56391 \u55356 \u57339 \
-            </div>\
-            <a href="https://s.shopee.vn/5KuATmWll5" target="_blank" class="btn-shopee-app">M\uc0\u7903  v\'ed voucher \u55356 \u57247 \u65039 </a>\
-        </div>\
-    </div>\
-</div>\
-\
-<script>\
-    const voucherData = [\
-        \{ code: "CBFMP41", brand: "d\'92Alba" \},\
-        \{ code: "CBFMP42", brand: "Torriden" \},\
-        \{ code: "CBFMP43", brand: "Clio/Peripera" \},\
-        \{ code: "CBFMP45", brand: "Beplain" \},\
-        \{ code: "CBFMP47", brand: "fwee" \},\
-        \{ code: "CBFMP48", brand: "Tirtir" \},\
-        \{ code: "CBFMP53", brand: "Numbuzin" \},\
-        \{ code: "CBFMP54", brand: "Tfit" \},\
-        \{ code: "CBFMP55", brand: "Some by mi" \},\
-        \{ code: "CBFMP56", brand: "VT cosmetics" \},\
-        \{ code: "CBFMP69", brand: "byWishtrend" \},\
-        \{ code: "CBFMP70", brand: "One day\'92s you" \},\
-        \{ code: "CBFMP71", brand: "APLB" \},\
-        \{ code: "CBFMP72", brand: "Ooznary" \},\
-        \{ code: "CBFMP75", brand: "Papa recipe" \},\
-        \{ code: "CBFMP76", brand: "Inga" \},\
-        \{ code: "CBFMP77", brand: "Tonymoly" \},\
-\{ code: "CBFMP94", brand: "Etude house" \},\
-\{ code: "CBFMP95", brand: "Eqqualberry" \},\
-\{ code: "CBFMP105", brand: "Age20s" \},\
-\{ code: "CBFMP111", brand: "Dermafirm" \},\
-\{ code: "CBFMP116", brand: "Rejuran" \},\
-\{ code: "CBFMP119", brand: "Ofbase" \},\
-\{ code: "CBFMP121", brand: "Standard seoul" \},\
-\{ code: "CBFMP124", brand: "ILSO" \},\
-\{ code: "CBFMP131", brand: "Obge" \},\
-\{ code: "CBFMP133", brand: "mixsoon" \},\
-\{ code: "CBFMP135", brand: "Arencia" \},\
-\{ code: "CBFMP138", brand: "Fully" \},\
-\{ code: "CBFMP140", brand: "Menokin" \},\
-\{ code: "CBFMP144", brand: "snow2plus" \},\
-\{ code: "CBFMP145", brand: "Unpa" \},\
-\{ code: "CBFMP149", brand: "VDL" \},\
-\{ code: "CBFMP151", brand: "Hanskin" \},\
-\{ code: "CBFMP153", brand: "Parnell" \},\
-\{ code: "CBFMP154", brand: "Dewytree" \},\
-\{ code: "CBFMP162", brand: "Laka" \},\
-\{ code: "CBFMP164", brand: "Cosnori" \},\
-\{ code: "CBFMP165", brand: "Dearglam" \},\
-\{ code: "CBFMP122", brand: "LiveOrals" \},\
-\{ code: "CBFMP132", brand: "Seapuri" \},\
-\{ code: "CBFMP125", brand: "Kpop merch" \},\
-\{ code: "CBFMP127", brand: "Sappun" \},\
-\{ code: "CBFMP128", brand: "Nutrione" \},\
-\{ code: "CBFMP136", brand: "ODid" \},\
-\{ code: "CBFMP155", brand: "Curlyshyll" \},\
-\{ code: "CBFMP156", brand: "Emis" \},\
-\{ code: "CBFMP109", brand: "Koko.kr" \},\
-\{ code: "CBFMP110", brand: "Glory of seoul" \},\
-\{ code: "CBFMP113", brand: "Stylemite" \},\
-\{ code: "CBFMP114", brand: "ibbeauty" \},\
-\{ code: "CBFMP115", brand: "Yaocos" \},\
-\{ code: "CBFMP137", brand: "Market Heidi" \},\
-\{ code: "CBFMP139", brand: "Chococo" \},\
-\{ code: "CBFMP147", brand: "koksara" \},\
-\{ code: "CBFMP157", brand: "Cocodor" \}\
-    ];\
-\
-    function searchVoucher() \{\
-        const query = document.getElementById('brandSearch').value.toLowerCase().trim();\
-        const resultsArea = document.getElementById('resultsArea');\
-        resultsArea.innerHTML = "";\
-\
-        if (query === "") \{\
-            resultsArea.innerHTML = '<div class="no-results">Nh\uc0\u7853 p t\'ean th\u432 \u417 ng hi\u7879 u \u273 \u7875  xem m\'e3...</div>';\
-            return;\
-        \}\
-\
-        const filtered = voucherData.filter(item => \
-            item.brand.toLowerCase().includes(query) || \
-            item.code.toLowerCase().includes(query)\
-        );\
-\
-        if (filtered.length > 0) \{\
-            filtered.forEach(item => \{\
-                resultsArea.innerHTML += `\
-                    <div class="voucher-card">\
-                        <div class="brand-info">\
-                            <span class="brand-name">$\{item.brand\}</span>\
-                            <span class="voucher-code">$\{item.code\}</span>\
-                        </div>\
-                        <button class="copy-btn" onclick="copyCode('$\{item.code\}', this)">COPY</button>\
-                    </div>\
-                `;\
-            \});\
-        \} else \{\
-            resultsArea.innerHTML = '<div class="no-results">Kh\'f4ng t\'ecm th\uc0\u7845 y m\'e3 cho th\u432 \u417 ng hi\u7879 u n\'e0y \u55358 \u56778 </div>';\
-        \}\
-    \}\
-\
-    function copyCode(code, btn) \{\
-        navigator.clipboard.writeText(code).then(() => \{\
-            const originalText = btn.innerText;\
-            btn.innerText = "XONG! \uc0\u9989 ";\
-            btn.classList.add('copied');\
-            setTimeout(() => \{\
-                btn.innerText = originalText;\
-                btn.classList.remove('copied');\
-            \}, 1500);\
-        \});\
-    \}\
-\
-    const tickerMessages = [\
-        "M\uc0\u7897 t b\u7841 n v\u7915 a copy m\'e3 d\'92Alba th\'e0nh c\'f4ng!",\
-        "Voucher Torriden \uc0\u273 ang \u273 \u432 \u7907 c d\'f9ng nhi\u7873 u \u10024 ",\
-        "M\'e3 CLIO v\uc0\u7915 a \u273 \u432 \u7907 c t\'ecm th\u7845 y.",\
-        "Brand fwee \uc0\u273 ang c\'f3 \u432 u \u273 \'e3i l\u7899 n!",\
-        "H\uc0\u7879  th\u7889 ng v\u7915 a c\u7853 p nh\u7853 t 16 m\'e3 m\u7899 i nh\u7845 t."\
-    ];\
-\
-    function startSocialProof() \{\
-        const proofEl = document.getElementById('socialProof');\
-        const textEl = document.getElementById('proofText');\
-        \
-        setInterval(() => \{\
-            let msg = tickerMessages[Math.floor(Math.random() * tickerMessages.length)];\
-            textEl.innerText = msg; \
-            proofEl.classList.add('show');\
-            setTimeout(() => \{ proofEl.classList.remove('show'); \}, 4000);\
-        \}, 12000);\
-    \}\
-\
-    window.onload = () => \{\
-        searchVoucher();\
-        startSocialProof();\
-    \};\
-</script>\
-\
-</body>\
-</html>}
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: 40px 15px; 
+            padding-bottom: 100px; 
+        }
+
+        .container { 
+            background: var(--white); 
+            border-radius: 30px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            width: 100%; 
+            max-width: 480px; 
+            margin: auto; 
+            overflow: hidden; 
+            border: 2px solid #e8e4d5; 
+        }
+
+        .banner { width: 100%; height: 120px; background: var(--accent); position: relative; }
+        
+        .banner::after {
+            content: '✨';
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            opacity: 0.5;
+        }
+
+        .logo-wrapper { 
+            width: 80px; height: 80px; 
+            background: white; 
+            border-radius: 50%; 
+            margin: -40px auto 15px auto; 
+            padding: 5px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            border: 2px solid var(--bg-cream); 
+            position: relative;
+            z-index: 2;
+        }
+        .logo-wrapper img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+        .content { padding: 0 20px 30px 20px; }
+        h2 { text-align: center; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+        .subtitle { text-align: center; color: var(--text-light); font-size: 13px; margin: 8px 0 20px 0; }
+
+        /* FIXED PROMO SECTION */
+        .promo-status-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .promo-card {
+            background: var(--notice-bg);
+            border: 2px solid #e8e4d5;
+            border-radius: 18px;
+            padding: 12px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .promo-label {
+            display: block;
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .promo-value {
+            display: block;
+            font-size: 15px;
+            font-weight: 900;
+            color: var(--text-dark);
+        }
+
+        /* SEARCH SECTION */
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            margin-left: 5px;
+        }
+        
+        input#brandSearch {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 15px;
+            border: 2px solid #e8e4d5;
+            background: var(--bg-cream);
+            font-size: 15px;
+            font-family: inherit;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        input#brandSearch:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(92, 139, 159, 0.1);
+        }
+
+        /* RESULTS AREA */
+        #resultsArea {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 50px;
+        }
+
+        .voucher-card {
+            background: var(--white);
+            border: 2px solid #e8e4d5;
+            border-radius: 18px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .brand-info { flex: 1; }
+        .brand-name { font-weight: 800; font-size: 15px; display: block; color: var(--text-dark); }
+        .voucher-code { 
+            font-family: 'Monaco', monospace; 
+            color: var(--accent); 
+            font-weight: 700; 
+            font-size: 14px;
+            background: #f0f4f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        .copy-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:active { transform: scale(0.95); }
+        .copy-btn.copied { background: #28a745; }
+
+        .no-results {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 13px;
+            padding: 20px;
+            font-style: italic;
+        }
+
+        /* NOTICE BOARD */
+        .notice-board { 
+            background: var(--notice-bg); 
+            border: 2px solid #e8e4d5; 
+            border-radius: 20px; 
+            padding: 20px; 
+            margin-top: 25px; 
+            text-align: center;
+        }
+
+        .btn-shopee-app {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 13px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(92, 139, 159, 0.2);
+        }
+
+        .btn-shopee-app:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* SOCIAL PROOF */
+        #socialProof {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(150%);
+            background: white; padding: 12px 20px; border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 10px;
+            z-index: 9999; border: 2px solid var(--accent); transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            min-width: 250px; font-size: 12px; font-weight: 600;
+        }
+        #socialProof.show { transform: translateX(-50%) translateY(0); }
+        .proof-dot { width: 8px; height: 8px; background: #28a745; border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+
+    </style>
+</head>
+<body>
+
+<div id="socialProof">
+    <div class="proof-dot"></div>
+    <span id="proofText">Đang cập nhật mã mới...</span>
+</div>
+
+<div class="container">
+    <div class="banner"></div>
+    <div class="logo-wrapper">
+        <img src="https://i.pinimg.com/736x/06/3c/fa/063cfa3125f4cb7a29fda76242998113.jpg" alt="Shopee Hub">
+    </div>
+
+    <div class="content">
+        <h2>🔍 Tìm voucher shop</h2>
+        <p class="subtitle">Hiện tại đang có mã...</p>
+
+        <div class="promo-status-grid">
+            <div class="promo-card">
+                <span class="promo-label">🏷️ Mức giảm</span>
+                <span class="promo-value">Giảm 18%</span>
+            </div>
+            <div class="promo-card">
+                <span class="promo-label">📅 Áp dụng</span>
+                <span class="promo-value">Từ 0H 4.4</span>
+            </div>
+        </div>
+
+        <div class="search-box">
+            <span class="input-label">🚀 Nhập tên Shop/Brand</span>
+            <input type="text" id="brandSearch" placeholder="Ví dụ: Torriden, Clio, Fwee..." oninput="searchVoucher()">
+        </div>
+
+        <div id="resultsArea"></div>
+
+        <div class="notice-board">
+            <div style="font-weight:800; font-size:13px; color: var(--accent);">💡 HƯỚNG DẪN</div>
+            <div style="font-size:12px; line-height:1.5; color:var(--text-light); margin-top: 5px;">
+                Copy mã và dán vào mục "Shopee Voucher" trong giỏ hàng để áp dụng giảm giá cho shop tương ứng<br><br>
+                Hoặc lưu trước mã vào ví 👇🏻
+            </div>
+            <a href="https://s.shopee.vn/5KuATmWll5" target="_blank" class="btn-shopee-app">Mở ví voucher 🎟️</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const voucherData = [
+        { code: "CBFMP41", brand: "d’Alba" },
+        { code: "CBFMP42", brand: "Torriden" },
+        { code: "CBFMP43", brand: "Clio/Peripera" },
+        { code: "CBFMP45", brand: "Beplain" },
+        { code: "CBFMP47", brand: "fwee" },
+        { code: "CBFMP48", brand: "Tirtir" },
+        { code: "CBFMP53", brand: "Numbuzin" },
+        { code: "CBFMP54", brand: "Tfit" },
+        { code: "CBFMP55", brand: "Some by mi" },
+        { code: "CBFMP56", brand: "VT cosmetics" },
+        { code: "CBFMP69", brand: "byWishtrend" },
+        { code: "CBFMP70", brand: "One day’s you" },
+        { code: "CBFMP71", brand: "APLB" },
+        { code: "CBFMP72", brand: "Ooznary" },
+        { code: "CBFMP75", brand: "Papa recipe" },
+        { code: "CBFMP76", brand: "Inga" },
+        { code: "CBFMP77", brand: "Tonymoly" },
+{ code: "CBFMP94", brand: "Etude house" },
+{ code: "CBFMP95", brand: "Eqqualberry" },
+{ code: "CBFMP105", brand: "Age20s" },
+{ code: "CBFMP111", brand: "Dermafirm" },
+{ code: "CBFMP116", brand: "Rejuran" },
+{ code: "CBFMP119", brand: "Ofbase" },
+{ code: "CBFMP121", brand: "Standard seoul" },
+{ code: "CBFMP124", brand: "ILSO" },
+{ code: "CBFMP131", brand: "Obge" },
+{ code: "CBFMP133", brand: "mixsoon" },
+{ code: "CBFMP135", brand: "Arencia" },
+{ code: "CBFMP138", brand: "Fully" },
+{ code: "CBFMP140", brand: "Menokin" },
+{ code: "CBFMP144", brand: "snow2plus" },
+{ code: "CBFMP145", brand: "Unpa" },
+{ code: "CBFMP149", brand: "VDL" },
+{ code: "CBFMP151", brand: "Hanskin" },
+{ code: "CBFMP153", brand: "Parnell" },
+{ code: "CBFMP154", brand: "Dewytree" },
+{ code: "CBFMP162", brand: "Laka" },
+{ code: "CBFMP164", brand: "Cosnori" },
+{ code: "CBFMP165", brand: "Dearglam" },
+{ code: "CBFMP122", brand: "LiveOrals" },
+{ code: "CBFMP132", brand: "Seapuri" },
+{ code: "CBFMP125", brand: "Kpop merch" },
+{ code: "CBFMP127", brand: "Sappun" },
+{ code: "CBFMP128", brand: "Nutrione" },
+{ code: "CBFMP136", brand: "ODid" },
+{ code: "CBFMP155", brand: "Curlyshyll" },
+{ code: "CBFMP156", brand: "Emis" },
+{ code: "CBFMP109", brand: "Koko.kr" },
+{ code: "CBFMP110", brand: "Glory of seoul" },
+{ code: "CBFMP113", brand: "Stylemite" },
+{ code: "CBFMP114", brand: "ibbeauty" },
+{ code: "CBFMP115", brand: "Yaocos" },
+{ code: "CBFMP137", brand: "Market Heidi" },
+{ code: "CBFMP139", brand: "Chococo" },
+{ code: "CBFMP147", brand: "koksara" },
+{ code: "CBFMP157", brand: "Cocodor" }
+    ];
+
+    function searchVoucher() {
+        const query = document.getElementById('brandSearch').value.toLowerCase().trim();
+        const resultsArea = document.getElementById('resultsArea');
+        resultsArea.innerHTML = "";
+
+        if (query === "") {
+            resultsArea.innerHTML = '<div class="no-results">Nhập tên thương hiệu để xem mã...</div>';
+            return;
+        }
+
+        const filtered = voucherData.filter(item => 
+            item.brand.toLowerCase().includes(query) || 
+            item.code.toLowerCase().includes(query)
+        );
+
+        if (filtered.length > 0) {
+            filtered.forEach(item => {
+                resultsArea.innerHTML += `
+                    <div class="voucher-card">
+                        <div class="brand-info">
+                            <span class="brand-name">${item.brand}</span>
+                            <span class="voucher-code">${item.code}</span>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode('${item.code}', this)">COPY</button>
+                    </div>
+                `;
+            });
+        } else {
+            resultsArea.innerHTML = '<div class="no-results">Không tìm thấy mã cho thương hiệu này 🧊</div>';
+        }
+    }
+
+    function copyCode(code, btn) {
+        navigator.clipboard.writeText(code).then(() => {
+            const originalText = btn.innerText;
+            btn.innerText = "XONG! ✅";
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('copied');
+            }, 1500);
+        });
+    }
+
+    const tickerMessages = [
+        "Một bạn vừa copy mã d’Alba thành công!",
+        "Voucher Torriden đang được dùng nhiều ✨",
+        "Mã CLIO vừa được tìm thấy.",
+        "Brand fwee đang có ưu đãi lớn!",
+        "Hệ thống vừa cập nhật 16 mã mới nhất."
+    ];
+
+    function startSocialProof() {
+        const proofEl = document.getElementById('socialProof');
+        const textEl = document.getElementById('proofText');
+        
+        setInterval(() => {
+            let msg = tickerMessages[Math.floor(Math.random() * tickerMessages.length)];
+            textEl.innerText = msg; 
+            proofEl.classList.add('show');
+            setTimeout(() => { proofEl.classList.remove('show'); }, 4000);
+        }, 12000);
+    }
+
+    window.onload = () => {
+        searchVoucher();
+        startSocialProof();
+    };
+</script>
+
+</body>
+</html>
