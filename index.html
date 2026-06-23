@@ -111,7 +111,7 @@
             margin-left: 5px;
         }
         
-        input#brandSearch {
+        input#brandSearch, select#discountFilter {
             width: 100%;
             padding: 16px 20px;
             border-radius: 15px;
@@ -123,11 +123,19 @@
             transition: var(--transition);
         }
 
-        input#brandSearch:focus {
+        input#brandSearch:focus, select#discountFilter:focus {
             outline: none;
             border-color: var(--accent);
             background: var(--white);
             box-shadow: 0 0 0 4px rgba(92, 139, 159, 0.1);
+        }
+
+        select#discountFilter {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-weight: 600;
         }
 
         .view-all-btn {
@@ -185,6 +193,15 @@
             border-radius: 4px;
             display: inline-block;
             margin-top: 4px;
+        }
+        .discount-badge {
+            font-size: 11px;
+            background: #ffebe6;
+            color: #ff4d4f;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 800;
+            margin-left: 6px;
         }
 
         .copy-btn {
@@ -266,22 +283,27 @@
 
     <div class="content">
         <h2>🔍 Tìm voucher shop</h2>
-        <p class="subtitle">SALE GIỮA THÁNG 15.6</p>
+        <p class="subtitle">SALE HÀN QUỐC 24.6</p>
 
         <div class="promo-status-grid">
             <div class="promo-card">
                 <span class="promo-label">🏷️ Mức giảm</span>
-                <span class="promo-value">Giảm 30%</span>
+                <span class="promo-value">Giảm 18-50%</span>
             </div>
             <div class="promo-card">
                 <span class="promo-label">📅 Áp dụng</span>
-                <span class="promo-value">Từ 0H 15.6</span>
+                <span class="promo-value">Từ 0H 24.6</span>
             </div>
         </div>
 
         <div class="search-box">
-            <span class="input-label">🚀 Nhập tên Shop/Brand</span>
+            <span class="input-label">🚀 Nhập tên Shop/Brand & Lọc Mức Giảm</span>
             <input type="text" id="brandSearch" placeholder="Ví dụ: Torriden, Clio, Fwee..." oninput="searchVoucher()">
+            <select id="discountFilter" onchange="searchVoucher()">
+                <option value="all">✨ Tất cả mức giảm</option>
+                <option value="50">🔥 Giảm sâu 50%</option>
+                <option value="18">⚡ Giảm 18%</option>
+            </select>
         </div>
 
         <button id="toggleBtn" class="view-all-btn" onclick="showAllVouchers()">✨ Xem tất cả voucher hiện có</button>
@@ -300,40 +322,136 @@
 </div>
 
 <script>
+    // Added 'discount' property values (50 and 18 spread through array)
     const voucherData = [
-{ "code": "AMSJBP101", "brand": "Torriden" },
-  { "code": "AMSJBP102", "brand": "Beplain" },
-  { "code": "AMSJBP103", "brand": "The Whoo" },
-  { "code": "AMSJBP104", "brand": "Ohui" },
-  { "code": "AMSJBP107", "brand": "Belif" },
-  { "code": "AMSJBP108", "brand": "Innisfree" },
-  { "code": "AMSJBP116", "brand": "Aestura" },
-  { "code": "AMSJBP141", "brand": "d’Alba" },
-  { "code": "AMSJBP142", "brand": "VT Cosmetics" },
-  { "code": "AMSJBP153", "brand": "The Face Shop" },
-  { "code": "AMSJBP157", "brand": "fwee" }
+        { "code": "KMDJV269", "brand": "cosmokor.vn", "discount": 50 },
+  { "code": "KMDJV268", "brand": "hyggehaus.vn", "discount": 50 },
+  { "code": "KMDJV267", "brand": "SeoulPick", "discount": 50 },
+  { "code": "KMDJV266", "brand": "RWB. KOREA", "discount": 50 },
+  { "code": "KMDJV266", "brand": "1plus1malloz", "discount": 50 },
+  { "code": "KMDJV265", "brand": "RWB. KOREA", "discount": 50 },
+  { "code": "KMDJV264", "brand": "mooncount.vn", "discount": 50 },
+  { "code": "KMDJV263", "brand": "SJ MALL", "discount": 50 },
+  { "code": "KMDJV262", "brand": "SARUGA_shop.vn", "discount": 50 },
+  { "code": "KMDJV261", "brand": "olamarketwf", "discount": 50 },
+  { "code": "KMDJV260", "brand": "koreaplus.vn", "discount": 50 },
+  { "code": "KMDJV259", "brand": "SEOUL.MATE_VT", "discount": 50 },
+  { "code": "KMDJV258", "brand": "DANBI.vn", "discount": 50 },
+  { "code": "KMDJV257", "brand": "soralandqp.vn", "discount": 50 },
+  { "code": "KMDJV255", "brand": "BodyYou♡", "discount": 50 },
+  { "code": "KMDJV254", "brand": "koapick", "discount": 50 },
+  { "code": "KMDJV252", "brand": "cosmokor.vn", "discount": 50 },
+  { "code": "KMDJV251", "brand": "Mixx it K-beauty.vn", "discount": 50 },
+  { "code": "KMDJV250", "brand": "SeoulPick", "discount": 50 },
+  { "code": "KMDJV249", "brand": "Glory of Seoul", "discount": 50 },
+  { "code": "KMDJV248", "brand": "Korea Town", "discount": 50 },
+  { "code": "KMDJV247", "brand": "Mochi Seoul.vn", "discount": 50 },
+  { "code": "KMDJV246", "brand": "The Yozm", "discount": 50 },
+  { "code": "KMDJV245", "brand": "ArtBox", "discount": 50 },
+  { "code": "KMDJV244", "brand": "mooncount.vn", "discount": 50 },
+  { "code": "KMDJV243", "brand": "koreaplus.vn", "discount": 50 },
+  { "code": "KMDJV242", "brand": "VALUOR KOREA", "discount": 50 },
+  { "code": "KMDJV241", "brand": "soralandqp.vn", "discount": 50 },
+  { "code": "KMDJV240", "brand": "miraview.vn", "discount": 50 },
+  { "code": "KMDJV239", "brand": "VivaNest", "discount": 50 },
+  { "code": "KMDJV238", "brand": "mj.seoul_koreasa", "discount": 50 },
+  { "code": "KMDJV237", "brand": "GlamupSeoul.vn", "discount": 50 },
+  { "code": "KMDJV236", "brand": "OBgE Vietnam", "discount": 50 },
+  { "code": "KMDJV235", "brand": "musincosmetic.vn", "discount": 50 },
+  { "code": "KMDJV234", "brand": "japanharmony.vn", "discount": 50 },
+  { "code": "KMDJV233", "brand": "JOEUN HOME", "discount": 50 },
+  { "code": "KMDJV232", "brand": "floree.vi", "discount": 50 },
+  { "code": "KMDJV231", "brand": "running88jr", "discount": 50 },
+  { "code": "KMDJV230", "brand": "k-wave", "discount": 50 },
+  { "code": "KMDJV229", "brand": "yunjac.vn", "discount": 50 },
+  { "code": "KMDJV228", "brand": "SEOUL.MATE_VT", "discount": 50 },
+  { "code": "KMDJV227", "brand": "LUMENA OFFICIAL STORE", "discount": 50 },
+  { "code": "KMDJV226", "brand": "Korean Heed Shop.vn", "discount": 50 },
+  { "code": "KMDJV225", "brand": "samsooniunnie.vn", "discount": 50 },
+  { "code": "KMDJV224", "brand": "LUMENA OFFICIAL STORE", "discount": 50 },
+  { "code": "KMDJV223", "brand": "VALUOR KOREA", "discount": 50 },
+  { "code": "KMDJV222", "brand": "DUDU KOREA", "discount": 50 },
+  { "code": "KMDJV221", "brand": "RWB. KOREA", "discount": 50 },
+  { "code": "KMDJV220", "brand": "mooncount.vn", "discount": 50 },
+  { "code": "KMDJV219", "brand": "floree.vi", "discount": 50 },
+  { "code": "KMDJV218", "brand": "Pink Seoul", "discount": 50 },
+  { "code": "KMDJV217", "brand": "yundaddyes.vn", "discount": 50 },
+  { "code": "KMDJV216", "brand": "SEOUL.MATE_VT", "discount": 50 },
+  { "code": "KMDJV215", "brand": "JOEUN HOME", "discount": 50 },
+  { "code": "KMDJV214", "brand": "o2much.vn", "discount": 50 },
+  { "code": "KMDJV213", "brand": "Rieti eyewear Flagship Store", "discount": 50 },
+  { "code": "KMDJV212", "brand": "pinkdaisyGO", "discount": 50 },
+  { "code": "KMDJV211", "brand": "LB Box", "discount": 50 },
+  { "code": "KMDJV210", "brand": "DANBI.vn", "discount": 50 },
+  { "code": "KMDJV209", "brand": "Daebak Korea", "discount": 50 },
+  { "code": "KMDJV208", "brand": "Korean Oppa’s Cosmetic", "discount": 50 },
+  { "code": "KMDJV207", "brand": "soralandqp.vn", "discount": 50 },
+  { "code": "KMDJV206", "brand": "KOKO.kr", "discount": 50 },
+  { "code": "KMDJV205", "brand": "orderdabi.vn", "discount": 50 },
+  { "code": "KMDJV204", "brand": "mooncount.vn", "discount": 50 },
+  { "code": "KMDJV203", "brand": "wishglam.vn", "discount": 50 },
+  { "code": "KMDJV202", "brand": "Daebak Korea", "discount": 50 },
+  { "code": "KMDJV201", "brand": "K-Deal Shop", "discount": 50 },
+  { "code": "KMDJV200", "brand": "orderdabi.vn", "discount": 50 },
+  { "code": "KMDJV199", "brand": "Mixx it K-beauty.vn", "discount": 50 },
+  { "code": "KMDJV198", "brand": "k_trend_market.vn", "discount": 50 },
+  { "code": "KMDJV197", "brand": "SEOUL.MATE_VT", "discount": 50 },
+  { "code": "KMDJV196", "brand": "Stylemitekorea.vn", "discount": 50 },
+  { "code": "KMDJV195", "brand": "Jina Korea", "discount": 50 },
+  { "code": "KMDJV194", "brand": "viorewp", "discount": 50 },
+  { "code": "KMDJV193", "brand": "allbe.vn", "discount": 50 },
+  { "code": "KMDJV192", "brand": "ROOM301_beauti.vn", "discount": 50 },
+  { "code": "KMDJV191", "brand": "JOEUN HOME", "discount": 50 },
+  { "code": "KMDJV190", "brand": "BestBuyKorea", "discount": 50 },
+  { "code": "KMDJV189", "brand": "Glory of Seoul", "discount": 50 },
+  { "code": "KMDJV8", "brand": "fwee", "discount": 18 },
+  { "code": "KMDJV9", "brand": "Tirtir", "discount": 18 },
+  { "code": "KMDJV10", "brand": "Some By Mi", "discount": 18 },
+  { "code": "KMDJV11", "brand": "numbuzin", "discount": 18 },
+  { "code": "KMDJV12", "brand": "Pyunkang Yul", "discount": 18 },
+  { "code": "KMDJV16", "brand": "PiGEE", "discount": 18 },
+  { "code": "KMDJV27", "brand": "Growus", "discount": 18 },
+  { "code": "KMDJV29", "brand": "Parnell", "discount": 18 },
+  { "code": "KMDJV34", "brand": "Dr.Reju-All", "discount": 18 },
+  { "code": "KMDJV13", "brand": "KOKO.kr", "discount": 18 },
+  { "code": "KMDJV14", "brand": "Younfamily", "discount": 18 },
+  { "code": "KMDJV15", "brand": "cocodor", "discount": 18 },
+  { "code": "KMDJV17", "brand": "cosmokor.vn", "discount": 18 },
+  { "code": "KMDJV18", "brand": "Glory of Seoul", "discount": 18 },
+  { "code": "KMDJV19", "brand": "withmuu.vn", "discount": 18 },
+  { "code": "KMDJV21", "brand": "koksara.kbeauty", "discount": 18 },
+  { "code": "KMDJV24", "brand": "Korea Town", "discount": 18 },
+  { "code": "KMDJV25", "brand": "Market Heidi_Korea", "discount": 18 },
+  { "code": "KMDJV26", "brand": "MaryMorning", "discount": 18 },
+  { "code": "KMDJV31", "brand": "bellashop", "discount": 18 },
+  { "code": "KMDJV32", "brand": "Best Korean Skincare", "discount": 18 },
+  { "code": "KMDJV33", "brand": "kpopfever.vn", "discount": 18 }
+  
     ];
 
     let isShowingAll = false;
 
     function searchVoucher() {
         const query = document.getElementById('brandSearch').value.toLowerCase().trim();
+        const discountType = document.getElementById('discountFilter').value;
         const resultsArea = document.getElementById('resultsArea');
         const toggleBtn = document.getElementById('toggleBtn');
         resultsArea.innerHTML = "";
         
-        isShowingAll = false; // Reset state when user starts typing
+        isShowingAll = false; 
         toggleBtn.innerText = "✨ Xem tất cả voucher hiện có";
 
-        if (query === "") {
-            resultsArea.innerHTML = '<div class="no-results">Nhập tên thương hiệu để xem mã...</div>';
+        // Condition altered: If query is empty but a specific discount filter is selected, we still process and display cards matching that specific category.
+        if (query === "" && discountType === "all") {
+            resultsArea.innerHTML = '<div class="no-results">Nhập tên thương hiệu hoặc chọn mức giảm để xem mã...</div>';
             return;
         }
 
-        const filtered = voucherData.filter(item => 
-            item.brand.toLowerCase().includes(query) || 
-            item.code.toLowerCase().includes(query)
-        );
+        const filtered = voucherData.filter(item => {
+            const matchesQuery = item.brand.toLowerCase().includes(query) || item.code.toLowerCase().includes(query);
+            const matchesDiscount = discountType === "all" || item.discount.toString() === discountType;
+            return matchesQuery && matchesDiscount;
+        });
 
         renderResults(filtered);
     }
@@ -341,16 +459,17 @@
     function showAllVouchers() {
         const toggleBtn = document.getElementById('toggleBtn');
         const searchInput = document.getElementById('brandSearch');
+        const discountFilter = document.getElementById('discountFilter');
 
         if (isShowingAll) {
-            // COLLAPSE LOGIC
             searchInput.value = "";
-            searchVoucher(); // This resets the view to default
+            discountFilter.value = "all";
+            searchVoucher(); 
             toggleBtn.innerText = "✨ Xem tất cả voucher hiện có";
             isShowingAll = false;
         } else {
-            // EXPAND LOGIC
             searchInput.value = ""; 
+            discountFilter.value = "all";
             renderResults(voucherData);
             toggleBtn.innerText = "🔼 Thu gọn danh sách";
             isShowingAll = true;
@@ -366,7 +485,7 @@
                 resultsArea.innerHTML += `
                     <div class="voucher-card">
                         <div class="brand-info">
-                            <span class="brand-name">${item.brand}</span>
+                            <span class="brand-name">${item.brand}<span class="discount-badge">-${item.discount}%</span></span>
                             <span class="voucher-code">${item.code}</span>
                         </div>
                         <button class="copy-btn" onclick="copyCode('${item.code}', this)">COPY</button>
@@ -374,7 +493,7 @@
                 `;
             });
         } else {
-            resultsArea.innerHTML = '<div class="no-results">Không tìm thấy mã cho thương hiệu này 🧊</div>';
+            resultsArea.innerHTML = '<div class="no-results">Không tìm thấy mã phù hợp tiêu chí 🧊</div>';
         }
     }
 
